@@ -55,11 +55,11 @@ public class TTDUID2Manager extends BaseCocosPlugin {
             }
             mLocalExtras.put("ttd_test", extraInfo.isTestMode() ? "true" : "false");
             //mLocalExtras.put("ttd_server_url", extraInfo.getCustomServerUrl());
-            com.data.uid2.adapter.TTDUID2Manager.getInstance().startUID2(getActivity(), subscriptionId, publicKey, mLocalExtras,
-                    result ->
-                            CocosHelper.runOnGameThread(() -> {
-                                CocosJavascriptJavaBridge.evalString("window.TTDUID2Manager.TTDUID2Listener.startFinish('" + result + "')");
-                            }));
+//            com.data.uid2.adapter.TTDUID2Manager.getInstance().startUID2(getActivity(), subscriptionId, publicKey, mLocalExtras,
+//                    result ->
+//                            CocosHelper.runOnGameThread(() -> {
+//                                CocosJavascriptJavaBridge.evalString("window.TTDUID2Manager.TTDUID2Listener.startFinish('" + result + "')");
+//                            }));
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             CocosHelper.runOnGameThread(() -> {
@@ -71,7 +71,7 @@ public class TTDUID2Manager extends BaseCocosPlugin {
     public static boolean resetSetting() {
         try {
             Log.d(TAG, "resetSetting:");
-            com.data.uid2.adapter.TTDUID2Manager.getInstance().resetIdentity();
+//            com.data.uid2.adapter.TTDUID2Manager.getInstance().resetIdentity();
         } catch (Throwable throwable) {
             Log.i(TAG, "Not import uid2 sdk");
         }

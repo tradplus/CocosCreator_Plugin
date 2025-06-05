@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.cocos.lib.CocosHelper;
 import com.cocos.lib.CocosJavascriptJavaBridge;
-import com.tp.adx.sdk.bean.TPNativeInfo;
 import com.tradplus.ads.base.bean.TPAdError;
 import com.tradplus.ads.base.bean.TPAdInfo;
 import com.tradplus.ads.base.bean.TPBaseAd;
@@ -21,7 +20,6 @@ public class TPNativeAdListener extends NativeAdListener {
 
     @Override
     public void onAdLoaded(TPAdInfo tpAdInfo, TPBaseAd tpBaseAd) {
-        Log.i(TAG, "onAdLoaded: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusNative.TPNativeListener.onNativeLoaded('" + mAdUnitId + "','" + JSON.toJSONString(tpAdInfo) + "')");
         });
@@ -29,7 +27,6 @@ public class TPNativeAdListener extends NativeAdListener {
 
     @Override
     public void onAdClicked(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdClicked: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusNative.TPNativeListener.onNativeClicked('" + mAdUnitId + "','" + JSON.toJSONString(tpAdInfo) + "')");
         });
@@ -37,7 +34,6 @@ public class TPNativeAdListener extends NativeAdListener {
 
     @Override
     public void onAdClosed(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdClosed Data : " + JSON.toJSONString(tpAdInfo));
         nativeAd.TPNativeInfo tpNativeInfo = TPCNativeManager.getTPNative(mAdUnitId);
 
         if (tpNativeInfo != null) {
@@ -52,7 +48,6 @@ public class TPNativeAdListener extends NativeAdListener {
 
     @Override
     public void onAdImpression(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdImpression: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusNative.TPNativeListener.onNativeImpression('" + mAdUnitId + "','" + JSON.toJSONString(tpAdInfo) + "')");
         });
@@ -75,11 +70,9 @@ public class TPNativeAdListener extends NativeAdListener {
     }
     @Override
     public void onAdVideoStart(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdVideoStart Data : " + JSON.toJSONString(tpAdInfo));
     }
     @Override
     public void onAdVideoEnd(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdVideoEnd Data : " + JSON.toJSONString(tpAdInfo));
     }
 }
 

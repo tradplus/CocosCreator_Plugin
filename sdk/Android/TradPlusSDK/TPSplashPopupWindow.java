@@ -1,3 +1,4 @@
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -10,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import com.tp.adx.sdk.util.ResourceUtils;
 import com.tradplus.ads.open.splash.TPSplash;
-import com.tradplus.cocos.R;
+import utils.ResourceUtils;
 
 
 public class TPSplashPopupWindow extends PopupWindow {
@@ -29,20 +29,14 @@ public class TPSplashPopupWindow extends PopupWindow {
         initView(activity);
     }
 
-    public interface OnMoreActionListener {
-        void onAdvertiser();
-
-        void onCopy();
-    }
-
     @SuppressLint("InflateParams")
     private void initView(Context context) {
-        setContentView(LayoutInflater.from(context).inflate(R.layout.tp_splash_activity, null));
+        setContentView(LayoutInflater.from(context).inflate(ResourceUtils.getLayoutIdByName(context, "tp_splash_activity"), null));
         setTouchable(true);
         setBackgroundDrawable(new ColorDrawable(0x00000000));
         setOutsideTouchable(true);
         setFocusable(true);
-        splash_container = getContentView().findViewById(R.id.tp_splash_container);
+        splash_container = getContentView().findViewById(ResourceUtils.getViewIdByName(context, "tp_splash_container"));
 
         instance = this;
         if (TextUtils.isEmpty(unitId)) {
@@ -60,3 +54,5 @@ public class TPSplashPopupWindow extends PopupWindow {
         }
     }
 }
+
+    

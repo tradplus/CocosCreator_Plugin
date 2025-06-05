@@ -20,7 +20,6 @@ public class TPSplashAdListener extends SplashAdListener {
     }
     @Override
     public void onAdClicked(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdClicked: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusSplash.TPSplashListener.onSplashClicked('" + mAdUnitId + "','" + (new Gson().toJson(tpAdInfo)) + "')");
         });
@@ -31,7 +30,6 @@ public class TPSplashAdListener extends SplashAdListener {
 
     @Override
     public void onAdImpression(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdImpression: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusSplash.TPSplashListener.onSplashImpression('" + mAdUnitId + "','" + (new Gson().toJson(tpAdInfo)) + "')");
         });
@@ -39,7 +37,6 @@ public class TPSplashAdListener extends SplashAdListener {
 
     @Override
     public void onAdClosed(TPAdInfo tpAdInfo) {
-        Log.i(TAG, "onAdClosed Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusSplash.TPSplashListener.onSplashClosed('" + mAdUnitId + "','" + (new Gson().toJson(tpAdInfo)) + "')");
         });
@@ -50,7 +47,6 @@ public class TPSplashAdListener extends SplashAdListener {
 
     @Override
     public void onAdLoaded(TPAdInfo tpAdInfo, TPBaseAd tpBaseAd) {
-        Log.i(TAG, "onAdLoaded: Data : " + JSON.toJSONString(tpAdInfo));
         CocosHelper.runOnGameThread(() -> {
             CocosJavascriptJavaBridge.evalString("window.TradPlusSplash.TPSplashListener.onSplashLoaded('" + mAdUnitId + "','" + (new Gson().toJson(tpAdInfo)) + "')");
         });

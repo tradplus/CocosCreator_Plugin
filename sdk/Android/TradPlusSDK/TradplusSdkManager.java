@@ -19,7 +19,7 @@ import com.tradplus.ads.common.serialization.JSON;
 import com.tradplus.ads.common.serialization.JSONArray;
 import com.tradplus.ads.core.GlobalImpressionManager;
 import com.tradplus.ads.open.TradPlusSdk;
-import com.tradplus.meditaiton.utils.ImportSDKUtil;
+//import com.tradplus.meditaiton.utils.ImportSDKUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -217,14 +217,14 @@ public class TradplusSdkManager extends BaseCocosPlugin {
     }
     //打开测试工具
     //android https://docs.tradplusad.com/docs/tradplussdk_android_doc_v6/sdk_test_android/test_tool
-    public static void openTradPlusTool() {
-        Log.d(TAG,"openTradPlusTool:");
-        try {
-            ImportSDKUtil.getInstance().showTestTools(getActivity(),mAppId);
-        } catch (Throwable throwable) {
-            Log.i(TAG, "Not import tools sdk");
-        }
-    }
+//    public static void openTradPlusTool() {
+//        Log.d(TAG,"openTradPlusTool:");
+//        try {
+//            ImportSDKUtil.getInstance().showTestTools(getActivity(),mAppId);
+//        } catch (Throwable throwable) {
+//            Log.i(TAG, "Not import tools sdk");
+//        }
+//    }
     //开启获取AuthId  false 关闭 ，true 开启
     public static void setAuthUID(boolean isCheck) {
         Log.d(TAG,"setAuthUID:");
